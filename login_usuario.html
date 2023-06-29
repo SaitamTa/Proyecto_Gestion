@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: 100%;
+    }
+    .form-container {
+      background-color: #26f0ad;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 400px;
+      height: 520px; 
+      margin: 200px auto 50px;
+      position: relative;
+      z-index: 2;
+    }
+    .form-container .form-group label {
+      font-weight: bold;
+    }
+    .form-container .input-group-prepend span {
+      font-size: 18px;
+      color: #999999;
+      padding: 10px;
+    }
+    .form-container .btn-primary {
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+    .form-container .btn-primary:hover {
+      background-color: #ffca2b;
+      border-color: #ffca2b;
+    }
+    .user-icon {
+      font-size: 60px;
+      color: thistle;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+    .custom-icon{
+      color: aqua;
+    }
+    .olpast{
+      color: inherit;
+      text-decoration: none;
+    }
+    .button-box {
+      width: 100%;
+      margin: 35px auto;
+      position: relative;
+      border-radius: 30px;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+    
+    .toggle-btn {
+      flex: 1;
+      padding: 10px;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      outline: none;
+      position: relative;
+      text-align: center;
+    
+  }
+    
+    
+    #btn {
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: lightblue;
+      border-radius: 30px;
+      transition: .5s;
+    }
+    @media (max-width: 576px) {
+      .form-container {
+        width: 90%;
+        margin: 100px auto 50px;
+      }
+    }
+  </style>
+  <title>Formulario de inicio de sesión - Estacionamiento</title>
+</head>
+<body>
+    <div class="header-banner">
+        <a href="#" class="olpast" style="float: left;">
+          <i class="fas fa-arrow-left"></i>
+          Volver
+        </a>
+        <h1 style="display: inline;"><i class="fas fa-home custom-icon"></i> LOGIN MIESTACIONAMIENTO <i class="fas fa-home custom-icon"></i></h1>
+      </div>
+  
+  <div class="container form-container">
+    <div class="text-center">
+      <i class="fas fa-user user-icon"></i>
+      <h3>LOGIN</h3>
+    </div>
+    <form method="post" action="login.php">
+        <input type="hidden" id="tipo-usuario" name="tipo-usuario" value="cliente">
+      <div class="form-group">
+        <label for="correo">Correo electrónico:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+          </div>
+          <input type="email" class="form-control" id="correo" placeholder="Ingrese su correo electrónico" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          </div>
+          <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña" required>
+        </div>
+      </div>
+      <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="leftClick()">Cliente</button>
+        <button type="button" class="toggle-btn" onclick="rightClick()">Arrendatario</button>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Acceder</button>
+    </form>
+    <div class="text-center mt-3">
+      <a href="#" class="olpast">¿Olvidaste tu contraseña?</a>
+    </div>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/b0ebb4a09c.js" crossorigin="anonymous"></script>
+  <script>
+    
+    var tipoUsuario = document.getElementById('tipo-usuario');
+    
+    function leftClick() {
+      btn.style.left = '0';
+      tipoUsuario.value = 'cliente';
+     
+    }
+  
+    function rightClick() {
+      btn.style.left = '50%';
+      tipoUsuario.value = 'arrendatario';
+
+    }
+  </script>
+  
+</body>
+</html>
